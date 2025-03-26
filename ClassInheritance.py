@@ -19,12 +19,27 @@ class Parent:
 
 class Children(Parent):
     def __init__(self, fname, lname):
-        pass 
+        Parent.__init__(self, fname, lname) # Parent class ni chaqirish
+        # Parent class ni chaqirish bilan biz bu class ni
+        # Parent class ni o'z ichiga olamiz
+        # va bu class ni obyektlarini chaqirish uchun ishlatamiz
         
+         
+class Student1(Parent):
+    def __init__(self, fname, lname, year):
+        super().__init__(fname, lname)
+        self.graduationyear = year
 
+    def welcome(self):
+        print(f"Welcome {self.firstname} {self.lastname} to the class of {self.graduationyear}!")
+    
+# Создание объектов
 x = Parent("Elyor", "Fattakhov")
 x.printname()
 
 x1 = Children("Diyyor", "Fattakhov")
-
 x1.printname()
+
+x2 = Student1("Doston", "Fattakhov", 2021)
+x2.printname()
+x2.welcome()
